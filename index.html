@@ -3,1281 +3,1355 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Demo & Taslak Güvenliği: Arama motorlarının indekslemesini engeller -->
-  <meta name="robots" content="noindex, nofollow">
-  <title>Özel Umut Ağız ve Diş Sağlığı | Maltepe Zümrütevler</title>
+  <title>Özel Umut Ağız ve Diş Sağlığı Polikliniği | Maltepe Zümrütevler</title>
   
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#ecfdf5',
-              100: '#d1fae5',
-              500: '#10b981',
-              600: '#059669',
-              700: '#047857',
-              navy: '#0f172a',
-              dark: '#1e293b',
-              teal: '#0f766e'
-            }
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Arama Motoru Gizlilik Kilidi (Müşteri Demosu) -->
+  <meta name="robots" content="noindex, nofollow">
 
-  <!-- Google Fonts & Font Awesome 6 -->
+  <!-- Google Fonts & FontAwesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
+    :root {
+      --primary: #0f766e;
+      --primary-dark: #115e59;
+      --primary-light: #ccfbf1;
+      --accent: #14b8a6;
+      --secondary: #0f172a;
+      --slate-muted: #64748b;
+      --bg-page: #f8fafc;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --radius: 12px;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.05);
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
     body {
-      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-page);
+      color: #334155;
+      line-height: 1.6;
+      scroll-behavior: smooth;
     }
-    .custom-scrollbar::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
+
+    a {
+      text-decoration: none;
+      color: inherit;
     }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 4px;
+
+    .container {
+      width: 100%;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
-    .custom-scrollbar::-webkit-scrollbar-track {
+
+    /* Top Bar */
+    .top-bar {
+      background: var(--secondary);
+      color: #cbd5e1;
+      font-size: 0.85rem;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .top-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .top-info {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .top-info i {
+      color: var(--accent);
+      margin-right: 6px;
+    }
+
+    .badge-hours {
+      background: rgba(20, 184, 166, 0.15);
+      color: #2dd4bf;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .auth-badge-btn {
+      background: #1e293b;
+      color: #94a3b8;
+      border: 1px solid #334155;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .auth-badge-btn:hover {
+      color: #fff;
+      border-color: var(--accent);
+      background: #0f172a;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: var(--surface);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--primary-light);
+      color: var(--primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .brand-text h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--secondary);
+      line-height: 1.1;
+    }
+
+    .brand-text span {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #475569;
+      transition: var(--transition);
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--border);
+      color: var(--secondary);
+    }
+
+    .btn-outline:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .btn-sm {
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      border-radius: 6px;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, #093b37 0%, #0f172a 100%);
+      color: #fff;
+      padding: 80px 0 100px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(20, 184, 166, 0.15);
+      border: 1px solid rgba(20, 184, 166, 0.3);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      color: #5eead4;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.75rem;
+      line-height: 1.2;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .hero-text h1 span {
+      color: var(--accent);
+    }
+
+    .hero-text p {
+      font-size: 1.05rem;
+      color: #cbd5e1;
+      margin-bottom: 30px;
+      max-width: 540px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* Hero Form Kartı */
+    .hero-form-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow-lg);
+      color: var(--secondary);
+    }
+
+    .hero-form-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .hero-form-card p {
+      font-size: 0.85rem;
+      color: var(--slate-muted);
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #475569;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      outline: none;
+      transition: var(--transition);
+      background: #f8fafc;
+    }
+
+    .form-control:focus {
+      background: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+    }
+
+    /* Özellik Rozetleri */
+    .features-band {
+      margin-top: -35px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feat-card {
+      background: var(--surface);
+      padding: 22px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border: 1px solid var(--border);
+    }
+
+    .feat-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--primary-light);
+      color: var(--primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .feat-body h4 {
+      font-size: 1rem;
+      color: var(--secondary);
+      margin-bottom: 2px;
+    }
+
+    .feat-body p {
+      font-size: 0.85rem;
+      color: var(--slate-muted);
+      margin: 0;
+    }
+
+    /* Tedaviler */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 50px;
+    }
+
+    .section-tag {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .section-header h2 {
+      font-size: 2.1rem;
+      color: var(--secondary);
+      margin-top: 6px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .service-box {
+      background: var(--surface);
+      padding: 30px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .service-box:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent);
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .service-box h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--secondary);
+    }
+
+    .service-box p {
+      font-size: 0.9rem;
+      color: var(--slate-muted);
+      line-height: 1.5;
+    }
+
+    /* Lokasyon */
+    .info-section {
       background: #f1f5f9;
     }
-    @keyframes slideIn {
-      from { transform: translateX(100%); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
     }
-    .toast-active {
-      animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+    .info-card {
+      background: var(--surface);
+      padding: 36px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    .info-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .info-list li {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 18px;
+      font-size: 0.95rem;
+    }
+
+    .info-list i {
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-top: 3px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--secondary);
+      color: #94a3b8;
+      padding: 40px 0 20px;
+      font-size: 0.85rem;
+    }
+
+    /* ==============================================================
+       OTOMASYON PANELİ (ŞİFRELİ SEÇENEK)
+       ============================================================== */
+    #automationApp {
+      display: none;
+      background: #0f172a;
+      min-height: 100vh;
+      color: #e2e8f0;
+    }
+
+    .dash-nav {
+      background: #1e293b;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #334155;
+    }
+
+    .dash-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .dash-brand h3 {
+      font-size: 1.1rem;
+      color: #f8fafc;
+      font-weight: 700;
+    }
+
+    .dash-brand span {
+      background: #0f766e;
+      color: #5eead4;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+
+    .dash-content {
+      padding: 24px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .demo-notice-bar {
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: 8px;
+      padding: 12px 18px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #fcd34d;
+    }
+
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .kpi-box {
+      background: #1e293b;
+      border: 1px solid #334155;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .kpi-title {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .kpi-val {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .panel-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .table-tools {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      background: #0f172a;
+      border: 1px solid #334155;
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 6px;
+      outline: none;
+      font-size: 0.85rem;
+      width: 260px;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .data-table th {
+      text-align: left;
+      padding: 12px;
+      background: #0f172a;
+      color: #94a3b8;
+      font-weight: 600;
+      border-bottom: 1px solid #334155;
+    }
+
+    .data-table td {
+      padding: 12px;
+      border-bottom: 1px solid #334155;
+      vertical-align: middle;
+    }
+
+    .badge-status {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .status-bekliyor { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+    .status-onaylandi { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
+    .status-tamamlandi { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+    .status-iptal { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+
+    /* Modal / Auth Popups */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-box {
+      background: #1e293b;
+      color: #fff;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 440px;
+      padding: 28px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .modal-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .modal-desc {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--secondary);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      box-shadow: var(--shadow-lg);
+      border-left: 4px solid var(--accent);
+      z-index: 10000;
+      transform: translateY(100px);
+      transition: transform 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .kpi-row { grid-template-columns: 1fr 1fr; }
+      .info-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+<body>
 
-  <!-- Canlı Toast Bildirim Alanı -->
-  <div id="toastContainer" class="fixed top-5 right-5 z-[100] flex flex-col gap-2 pointer-events-none"></div>
-
-  <!-- Üst Bilgi ve Acil İletişim Şeridi -->
-  <aside aria-label="Klinik Çalışma Saatleri ve Hızlı İletişim" class="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
-    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
-      <div class="flex items-center gap-4 flex-wrap">
-        <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-emerald-400"></i> Zümrütevler, Nil Cd. No:26, Maltepe / İstanbul</span>
-        <span class="hidden md:inline text-slate-700">|</span>
-        <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock text-emerald-400"></i> Pzt - Cmt: 09:00 - 22:00 | Pazar: 10:00 - 18:00</span>
-      </div>
-      <div class="flex items-center gap-4">
-        <span class="flex items-center gap-1.5 text-emerald-400 font-semibold"><i class="fa-solid fa-briefcase-medical"></i> Akşam 22:00'ye Kadar Açık</span>
-        <span class="text-slate-700">|</span>
-        <button onclick="openStaffLoginModal()" class="text-slate-400 hover:text-white font-medium flex items-center gap-1.5 transition">
-          <i class="fa-solid fa-shield-halved text-[11px] text-emerald-400"></i> Personel Girişi
-        </button>
-      </div>
-    </div>
-  </aside>
-
-  <!-- Ana Navigasyon Barı -->
-  <header class="bg-white sticky top-0 z-50 border-b border-slate-200 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
-      <!-- Logo -->
-      <div class="flex items-center gap-3 cursor-pointer" onclick="returnToWebsite()">
-        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white shadow-md shadow-emerald-600/20">
-          <i class="fa-solid fa-tooth text-2xl"></i>
-        </div>
-        <div>
-          <div class="text-xl font-extrabold tracking-tight text-slate-900 leading-none">
-            ÖZEL <span class="text-emerald-600">UMUT</span>
-          </div>
-          <p class="text-[10px] tracking-widest uppercase font-semibold text-slate-500 mt-1">Ağız ve Diş Sağlığı Polikliniği</p>
-        </div>
-      </div>
-
-      <!-- Menü Linkleri -->
-      <nav id="siteNavMenu" class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-600">
-        <a href="#tedaviler" class="hover:text-emerald-600 transition">Tedavilerimiz</a>
-        <a href="#neden-umut" class="hover:text-emerald-600 transition">Neden Özel Umut?</a>
-        <a href="#nobetci" class="hover:text-emerald-600 transition">Gece & Acil Diş</a>
-        <a href="#iletisim" class="hover:text-emerald-600 transition">İletişim & Konum</a>
-      </nav>
-
-      <!-- Eylem Butonları -->
-      <div class="flex items-center gap-3">
-        <!-- Personel Giriş Kilidi Butonu -->
-        <button id="staffLoginBtn" onclick="openStaffLoginModal()" class="px-3.5 py-2 rounded-lg text-xs font-semibold border border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100 hover:text-emerald-700 transition flex items-center gap-2">
-          <i class="fa-solid fa-lock text-slate-400"></i>
-          <span>Klinik Girişi</span>
-        </button>
-
-        <!-- Hasta Randevu Butonu -->
-        <a href="#randevu-formu" id="headerBookBtn" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold shadow-md shadow-emerald-600/20 transition transform active:scale-95">
-          <i class="fa-regular fa-calendar-check"></i> Randevu Al
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- ========================================================================= -->
-  <!-- 1. HASTA WEB SİTESİ (PUBLIC FRONTEND)                                    -->
-  <!-- ========================================================================= -->
-  <main id="publicSiteView" class="flex-grow">
+  <!-- ==============================================================
+       1. HALKA AÇIK HASTA SİTESİ
+       ============================================================== -->
+  <div id="publicSite">
     
-    <!-- Hero Bölümü -->
-    <section class="relative bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden py-16 lg:py-24">
-      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:24px_24px]"></div>
-      
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="grid lg:grid-cols-12 gap-12 items-center">
-          
-          <!-- Sol Yazı Alanı -->
-          <div class="lg:col-span-7 space-y-6">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-400/20 text-emerald-300 text-xs font-semibold">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Maltepe Zümrütevler'de Güvenli Ağız ve Diş Sağlığı
-            </div>
-            
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
-              Aileniz İçin Güvenilir, <br class="hidden sm:inline"><span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">Ağrısız & Çağdaş Diş Tedavisi</span>
-            </h1>
-            
-            <p class="text-slate-300 text-base sm:text-lg max-w-xl leading-relaxed">
-              İmplant cerrahisi, zirkonyum kaplama, kanal tedavisi ve çocuk diş hekimliğinde tecrübeli kadromuzla akşam 22:00'ye kadar Zümrütevler Nil Caddesi'nde hizmetinizdeyiz.
-            </p>
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <div class="container top-bar-inner">
+        <div class="top-info">
+          <span><i class="fa-solid fa-location-dot"></i> Maltepe / Zümrütevler, Nil Cd. No:26</span>
+          <span class="badge-hours"><i class="fa-regular fa-clock"></i> Pzt - Cmt: 09:00 - 22:00 (Geç Saate Kadar Açık)</span>
+        </div>
+        <div style="display: flex; gap: 16px; align-items: center;">
+          <a href="tel:02160000000" style="color: #fff; font-weight: 600;"><i class="fa-solid fa-phone"></i> (0216) 000 00 00</a>
+          <button class="auth-badge-btn" onclick="openLoginModal()">
+            <i class="fa-solid fa-lock"></i> Personel Girişi
+          </button>
+        </div>
+      </div>
+    </div>
 
-            <div class="flex flex-wrap items-center gap-4 pt-2">
-              <a href="#randevu-formu" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-semibold text-sm shadow-xl shadow-emerald-600/30 flex items-center gap-2.5 transition transform active:scale-95">
-                <i class="fa-regular fa-calendar-plus text-base"></i> Hemen Randevu Oluştur
-              </a>
-              <a href="tel:02160000000" class="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold text-sm flex items-center gap-2 transition">
-                <i class="fa-solid fa-phone text-emerald-400"></i> Kliniği Ara
-              </a>
-            </div>
-
-            <!-- Güven İstatistikleri -->
-            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800 max-w-lg">
-              <div>
-                <p class="text-2xl font-black text-white">22:00</p>
-                <p class="text-xs text-slate-400 mt-0.5">Geç Saate Kadar Açık</p>
-              </div>
-              <div>
-                <p class="text-2xl font-black text-emerald-400">%100</p>
-                <p class="text-xs text-slate-400 mt-0.5">Steril & Hijyenik</p>
-              </div>
-              <div>
-                <p class="text-2xl font-black text-white">Zümrütevler</p>
-                <p class="text-xs text-slate-400 mt-0.5">Merkezi Nil Caddesi</p>
-              </div>
-            </div>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container nav-inner">
+        <a href="#" class="brand">
+          <div class="brand-icon">
+            <i class="fa-solid fa-tooth"></i>
           </div>
-
-          <!-- Sağ: Hasta Ön Randevu Formu -->
-          <div class="lg:col-span-5" id="randevu-formu">
-            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-2xl text-slate-900 border border-slate-100">
-              <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-5">
-                <div>
-                  <h2 class="text-xl font-bold text-slate-900">Online Randevu Talebi</h2>
-                  <p class="text-xs text-slate-500">Müsait saatler için anında ön kayıt oluşturun.</p>
-                </div>
-                <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
-                  <i class="fa-solid fa-calendar-check text-lg"></i>
-                </div>
-              </div>
-
-              <form id="publicAppointmentForm" onsubmit="handlePublicBooking(event)" class="space-y-4 text-xs sm:text-sm">
-                <div>
-                  <label class="block font-semibold text-slate-700 mb-1">Adınız & Soyadınız *</label>
-                  <div class="relative">
-                    <i class="fa-regular fa-user absolute left-3 top-3 text-slate-400"></i>
-                    <input type="text" id="patientName" required placeholder="Örn: Mehmet Özkan" class="w-full pl-9 pr-3 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                  </div>
-                </div>
-
-                <div>
-                  <label class="block font-semibold text-slate-700 mb-1">Telefon Numaranız *</label>
-                  <div class="relative">
-                    <i class="fa-solid fa-phone absolute left-3 top-3 text-slate-400"></i>
-                    <input type="tel" id="patientPhone" required placeholder="05xx xxx xx xx" class="w-full pl-9 pr-3 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                  </div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label class="block font-semibold text-slate-700 mb-1">Tedavi Branşı</label>
-                    <select id="patientTreatment" class="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white">
-                      <option value="Genel Kontrol & Diş Ağrısı">Acil Diş Ağrısı / Muayene</option>
-                      <option value="İmplant Tedavisi">İmplant Cerrahisi</option>
-                      <option value="Zirkonyum Kaplama">Zirkonyum & Porselen</option>
-                      <option value="20'lik Diş Çekimi">20'lik Diş & Cerrahi</option>
-                      <option value="Kanal Tedavisi (Endodonti)">Kanal Tedavisi & Dolgu</option>
-                      <option value="Ortodonti / Tel & Plak">Ortodonti / Şeffaf Plak</option>
-                      <option value="Pedodonti (Çocuk Diş)">Çocuk Diş Tedavisi</option>
-                      <option value="Diş Taşı Temizliği">Diş Taşı Temizliği & Polisaj</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label class="block font-semibold text-slate-700 mb-1">Saat Tercihi</label>
-                    <select id="patientTime" class="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white">
-                      <option value="10:00">10:00 (Sabah)</option>
-                      <option value="12:00">12:00 (Öğle)</option>
-                      <option value="15:30">15:30 (Öğleden Sonra)</option>
-                      <option value="18:00">18:00 (İş Çıkışı)</option>
-                      <option value="19:30">19:30 (Akşam)</option>
-                      <option value="21:00">21:00 (Geç Seans)</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label class="block font-semibold text-slate-700 mb-1">Randevu Tarihi</label>
-                  <input type="date" id="patientDate" required class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                </div>
-
-                <div>
-                  <label class="block font-semibold text-slate-700 mb-1">Şikayet Notunuz (Opsiyonel)</label>
-                  <textarea id="patientNotes" rows="2" placeholder="Şiddetli ağrı, kırık diş, şişlik veya merak ettikleriniz..." class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-xs resize-none"></textarea>
-                </div>
-
-                <button type="submit" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition flex items-center justify-center gap-2 shadow-md shadow-emerald-600/20">
-                  <i class="fa-solid fa-check-circle"></i> Randevu Talebini İlet
-                </button>
-                <p class="text-[11px] text-slate-400 text-center">Talebiniz poliklinik sekreteryasına iletilerek teyit araması yapılacaktır.</p>
-              </form>
-            </div>
+          <div class="brand-text">
+            <h2>ÖZEL UMUT</h2>
+            <span>Ağız ve Diş Sağlığı Polikliniği</span>
           </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#hizmetler" class="nav-link">Tedaviler</a></li>
+          <li><a href="#hakkimizda" class="nav-link">Neden Biz?</a></li>
+          <li><a href="#iletisim" class="nav-link">Ulaşım & Saatler</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="#randevu" class="btn btn-primary"><i class="fa-regular fa-calendar-check"></i> Randevu Al</a>
+        </div>
+      </div>
+    </nav>
 
+    <!-- Hero -->
+    <header class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <div class="hero-badge">
+            <i class="fa-solid fa-moon"></i> Akşam 22:00'ye Kadar Kesintisiz Hizmet
+          </div>
+          <h1>Zümrütevler'de Güvenli ve <span>Güler Yüzlü</span> Diş Sağlığı</h1>
+          <p>Mesai çıkışında da yanınızdayız. Gelişmiş medikal donanımımız ve uzman hekimlerimizle Zümrütevler Nil Caddesi'nde sizleri bekliyoruz.</p>
+          <div class="hero-btns">
+            <a href="tel:02160000000" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Hemen Arayın</a>
+            <a href="https://wa.me/905000000000" target="_blank" class="btn btn-outline" style="color:#fff; border-color: rgba(255,255,255,0.3);">
+              <i class="fa-brands fa-whatsapp"></i> WhatsApp Hattı
+            </a>
+          </div>
+        </div>
+
+        <!-- Hızlı Ön Randevu Formu -->
+        <div class="hero-form-card" id="randevu">
+          <h3>Ön Randevu Talebi</h3>
+          <p>Formu iletin, poliklinik danışmanlarımız sizi arayarak uygun saati teyit etsin.</p>
+          <form id="publicAppointmentForm" onsubmit="handlePublicBooking(event)">
+            <div class="form-group">
+              <label>Adınız Soyadınız</label>
+              <input type="text" id="patientName" class="form-control" placeholder="Örn: Hasta Adı" required>
+            </div>
+            <div class="form-group">
+              <label>Telefon Numaranız</label>
+              <input type="tel" id="patientPhone" class="form-control" placeholder="05xx xxx xx xx" required>
+            </div>
+            <div class="form-group">
+              <label>Tedavi Türü</label>
+              <select id="treatmentType" class="form-control">
+                <option value="Genel Kontrol & Muayene">Genel Kontrol & Muayene</option>
+                <option value="Acil Diş Ağrısı / Çekim">Acil Diş Ağrısı / Çekim</option>
+                <option value="İmplant Tedavisi">İmplant Tedavisi</option>
+                <option value="Zirkonyum / Estetik Kaplama">Zirkonyum / Estetik Kaplama</option>
+                <option value="Kanal Tedavisi & Dolgu">Kanal Tedavisi & Dolgu</option>
+                <option value="Diş Taşı Temizliği / Beyazlatma">Diş Taşı Temizliği / Beyazlatma</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Tercih Edilen Zaman Dilimi</label>
+              <select id="preferredTime" class="form-control">
+                <option value="Gündüz (09:00 - 13:00)">Gündüz (09:00 - 13:00)</option>
+                <option value="Öğleden Sonra (13:00 - 18:00)">Öğleden Sonra (13:00 - 18:00)</option>
+                <option value="Akşam Seansı (18:00 - 22:00)">Akşam Seansı (18:00 - 22:00)</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <i class="fa-regular fa-paper-plane"></i> Randevu Talebi İlet
+            </button>
+          </form>
+        </div>
+      </div>
+    </header>
+
+    <!-- Özellikler -->
+    <div class="container features-band">
+      <div class="features-grid">
+        <div class="feat-card">
+          <div class="feat-icon"><i class="fa-regular fa-clock"></i></div>
+          <div class="feat-body">
+            <h4>22:00'ye Kadar Açık</h4>
+            <p>İş çıkışı rahatça gelebileceğiniz esnek muayene saatleri.</p>
+          </div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><i class="fa-solid fa-map-pin"></i></div>
+          <div class="feat-body">
+            <h4>Nil Caddesi Üzerinde</h4>
+            <p>Zümrütevler merkezinde dolmuş ve otobüs durağına yakın.</p>
+          </div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="feat-body">
+            <h4>Sterilizasyon Güvencesi</h4>
+            <p>Modern otoklav ve cerrahi hijyen standartları.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hizmetler -->
+    <section class="section" id="hizmetler">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">KLİNİK HİZMETLERİMİZ</span>
+          <h2>Ağız ve Diş Sağlığında Tam Kapsamlı Tedaviler</h2>
+        </div>
+        <div class="services-grid">
+          <div class="service-box">
+            <i class="fa-solid fa-screwdriver-wrench service-icon"></i>
+            <h3>İmplantoloji</h3>
+            <p>Eksik dişleriniz için dayanıklı, kemik dostu titanyum vida altyapıları ile ömür boyu çiğneme konforu.</p>
+          </div>
+          <div class="service-box">
+            <i class="fa-solid fa-wand-magic-sparkles service-icon"></i>
+            <h3>Zirkonyum & Estetik</h3>
+            <p>Doğal diş şeffaflığında lamine ve zirkonyum kaplamalarla kişiye özel gülüş tasarımı.</p>
+          </div>
+          <div class="service-box">
+            <i class="fa-solid fa-tooth service-icon"></i>
+            <h3>Endodonti (Kanal Tedavisi)</h3>
+            <p>Ağrılı ve enfeksiyonlu dişleri çekilmekten kurtaran ileri kanal enstrümantasyonu.</p>
+          </div>
+          <div class="service-box">
+            <i class="fa-solid fa-teeth-open service-icon"></i>
+            <h3>Ortodonti & Şeffaf Plak</h3>
+            <p>Çapraşık dişlere tel takmadan telsiz şeffaf plak veya estetik braket çözümleri.</p>
+          </div>
+          <div class="service-box">
+            <i class="fa-solid fa-spa service-icon"></i>
+            <h3>Detertraj & Beyazlatma</h3>
+            <p>Diş eti sağlığını koruyan profesyonel diş taşı temizliği ve klinik tipi beyazlatma.</p>
+          </div>
+          <div class="service-box">
+            <i class="fa-solid fa-child service-icon"></i>
+            <h3>Pedodonti (Çocuk Diş)</h3>
+            <p>Minik hastalarımıza korkusuz, koruyucu flor ve süt dişi tedavileri.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Neden Özel Umut & Gece Açık Klinik Vurgusu -->
-    <section id="nobetci" class="py-12 bg-emerald-700 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div class="flex items-center gap-5">
-            <div class="w-16 h-16 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-3xl shrink-0">
-              <i class="fa-solid fa-moon text-emerald-200"></i>
-            </div>
-            <div>
-              <span class="text-emerald-200 font-bold uppercase tracking-wider text-xs">ZÜMRÜTEVLER'DE ACİL VE GEÇ SAAT DİŞ HİZMETİ</span>
-              <h3 class="text-2xl font-black mt-1">Akşam 22:00'ye Kadar Kesintisiz Muayene</h3>
-              <p class="text-emerald-100 text-xs sm:text-sm mt-1 max-w-2xl">İş çıkışı diş randevusu arayanlar ve ani başlayan diş ağrıları için haftanın 6 günü 22:00'ye kadar, Pazar günleri ise 18:00'e kadar açığız.</p>
-            </div>
+    <!-- Ulaşım & Saatler -->
+    <section class="section info-section" id="iletisim">
+      <div class="container">
+        <div class="info-grid">
+          <div class="info-card">
+            <h3>Özel Umut Ağız ve Diş Sağlığı</h3>
+            <p style="color: var(--slate-muted); margin-top: 6px;">Zümrütevler Nil Caddesi üzerinde mahallemizin güvenilir sağlık kapısı.</p>
+            <ul class="info-list">
+              <li>
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                  <strong>Adres:</strong><br>
+                  Zümrütevler Mah. Nil Cd. No:26, Maltepe / İstanbul
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                  <strong>Santral Hattı:</strong><br>
+                  (0216) 000 00 00
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-clock"></i>
+                <div>
+                  <strong>Çalışma Saatleri:</strong><br>
+                  Pazartesi – Cumartesi: 09:00 – 22:00<br>
+                  Pazar: Randevulu Acil Durumlar
+                </div>
+              </li>
+            </ul>
           </div>
-          <div class="shrink-0">
-            <a href="tel:02160000000" class="px-6 py-3.5 rounded-xl bg-white text-emerald-800 font-bold text-sm hover:bg-emerald-50 shadow-lg flex items-center gap-2 transition">
-              <i class="fa-solid fa-phone text-emerald-600"></i> Acil Randevu Hattı
+          <div class="info-card" style="background: #0f172a; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <i class="fa-solid fa-calendar-check" style="font-size: 3rem; color: var(--accent); margin-bottom: 16px;"></i>
+            <h3 style="color:#fff; margin-bottom: 10px;">Gününüzü Ertelemeyin</h3>
+            <p style="color: #94a3b8; max-width: 340px; margin-bottom: 24px;">Akşam saat 22:00'ye kadar polikliniğimizi ziyaret edebilir veya hemen randevu oluşturabilirsiniz.</p>
+            <a href="tel:02160000000" class="btn btn-primary" style="padding: 14px 28px; font-size: 1rem;">
+              <i class="fa-solid fa-phone"></i> (0216) 000 00 00
             </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Tedaviler Bölümü -->
-    <section id="tedaviler" class="py-20 bg-slate-50 border-b border-slate-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-          <span class="text-emerald-600 font-bold uppercase tracking-wider text-xs">TEDAVİ ALANLARIMIZ</span>
-          <h2 class="text-3xl font-extrabold text-slate-900 mt-2">Özel Umut Ağız ve Diş Sağlığı Hizmetleri</h2>
-          <p class="text-slate-600 text-sm mt-3">Maltepe Zümrütevler polikliniğimizde koruyucu hekimlikten ileri cerrahiye kadar eksiksiz tedavi çözümleri.</p>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Hizmet 1 -->
-          <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200 hover:shadow-xl hover:border-emerald-400 transition duration-300">
-            <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-6">
-              <i class="fa-solid fa-tooth"></i>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 mb-2">İmplant Cerrahisi</h3>
-            <p class="text-slate-600 text-sm leading-relaxed mb-4">Eksik dişleriniz için dayanıklı, biyouyumlu titanyum implant uygulamalarıyla doğal diş estetiği ve çiğneme konforu.</p>
-            <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded">Ömür Boyu Malzeme Garantisi</span>
-          </div>
-
-          <!-- Hizmet 2 -->
-          <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200 hover:shadow-xl hover:border-emerald-400 transition duration-300">
-            <div class="w-14 h-14 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center text-2xl mb-6">
-              <i class="fa-solid fa-gem"></i>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 mb-2">Zirkonyum & Porselen Kaplama</h3>
-            <p class="text-slate-600 text-sm leading-relaxed mb-4">Diş eti kararması yapmayan, ışık geçirgenliği yüksek doğal zirkonyum ve estetik lamine kaplamalar.</p>
-            <span class="text-xs font-semibold text-teal-700 bg-teal-50 px-2.5 py-1 rounded">Doğal Diş Beyazlığı</span>
-          </div>
-
-          <!-- Hizmet 3 -->
-          <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200 hover:shadow-xl hover:border-emerald-400 transition duration-300">
-            <div class="w-14 h-14 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-2xl mb-6">
-              <i class="fa-solid fa-heart-pulse"></i>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 mb-2">Kanal Tedavisi (Endodonti)</h3>
-            <p class="text-slate-600 text-sm leading-relaxed mb-4">Şiddetli ağrıya sebep olan iltihaplı dişleri çekmeden ağızda tutan modern tek seans kanal tedavisi.</p>
-            <span class="text-xs font-semibold text-rose-700 bg-rose-50 px-2.5 py-1 rounded">Ağrısız & Hızlı Müdahale</span>
-          </div>
-
-          <!-- Hizmet 4 -->
-          <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200 hover:shadow-xl hover:border-emerald-400 transition duration-300">
-            <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl mb-6">
-              <i class="fa-solid fa-arrows-split-up-and-left"></i>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 mb-2">20'lik Diş Çekimi & Cerrahi</h3>
-            <p class="text-slate-600 text-sm leading-relaxed mb-4">Gömülü, yarı gömülü veya komşu dişe baskı yapan yirmilik dişlerin travmasız ve güvenli cerrahi operasyonları.</p>
-            <span class="text-xs font-semibold text-indigo-700 bg-indigo-50 px-2.5 py-1 rounded">Lokal Anestezi ile Konfor</span>
-          </div>
-
-          <!-- Hizmet 5 -->
-          <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200 hover:shadow-xl hover:border-emerald-400 transition duration-300">
-            <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl mb-6">
-              <i class="fa-solid fa-child"></i>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 mb-2">Çocuk Diş Hekimliği (Pedodonti)</h3>
-            <p class="text-slate-600 text-sm leading-relaxed mb-4">Çocuklarda diş hekimi korkusu oluşturmadan uygulanan florlama, fissür örtücü ve süt dişi tedavileri.</p>
-            <span class="text-xs font-semibold text-amber-700 bg-amber-50 px-2.5 py-1 rounded">Korkusuz & Güler Yüzlü</span>
-          </div>
-
-          <!-- Hizmet 6 -->
-          <div class="bg-white rounded-2xl p-7 shadow-sm border border-slate-200 hover:shadow-xl hover:border-emerald-400 transition duration-300">
-            <div class="w-14 h-14 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-2xl mb-6">
-              <i class="fa-solid fa-wand-magic-sparkles"></i>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 mb-2">Diş Temizliği & Beyazlatma</h3>
-            <p class="text-slate-600 text-sm leading-relaxed mb-4">Ultrasonik cihazlarla diş taşı temizliği ve tek seansta güvenli lazerle klinik tipi diş beyazlatma.</p>
-            <span class="text-xs font-semibold text-cyan-700 bg-cyan-50 px-2.5 py-1 rounded">Ferah Nefes & Parlak Dişler</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Neden Özel Umut? -->
-    <section id="neden-umut" class="py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <span class="text-emerald-600 font-bold uppercase tracking-wider text-xs">ZÜMRÜTEVLER'DEKİ DİŞ HEKİMİNİZ</span>
-            <h2 class="text-3xl font-extrabold text-slate-900 mt-2 mb-6">Neden Özel Umut Ağız ve Diş Sağlığı?</h2>
-            <p class="text-slate-600 text-sm leading-relaxed mb-6">
-              Özel Umut Polikliniği olarak mahallemizde samimi, ulaşılabilir ve hijyenden asla ödün vermeyen bir hizmet anlayışı benimsiyoruz. Tedavi sürecinizin başından sonuna kadar şeffaf bilgilendirme sağlıyoruz.
-            </p>
-
-            <div class="space-y-4">
-              <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-100">
-                <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
-                  <i class="fa-solid fa-clock"></i>
-                </div>
-                <div>
-                  <h4 class="font-bold text-slate-900 text-sm">Geniş Çalışma Saatleri (09:00 - 22:00)</h4>
-                  <p class="text-xs text-slate-600 mt-0.5">İşinizden veya okulunuzdan izin almak zorunda kalmadan akşam saatlerinde rahatça tedavi olun.</p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-100">
-                <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
-                  <i class="fa-solid fa-shield-virus"></i>
-                </div>
-                <div>
-                  <h4 class="font-bold text-slate-900 text-sm">Yüksek Standartlı Otoklav & Hijyen</h4>
-                  <p class="text-xs text-slate-600 mt-0.5">Her hasta için tek kullanımlık malzemeler ve hastane tipi sterilizasyon protokolleri.</p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-100">
-                <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
-                  <i class="fa-solid fa-hand-holding-dollar"></i>
-                </div>
-                <div>
-                  <h4 class="font-bold text-slate-900 text-sm">Ulaşılabilir & Şeffaf Fiyatlar</h4>
-                  <p class="text-xs text-slate-600 mt-0.5">Sürpriz maliyetler olmadan, tedaviye başlamadan önce net ücret planlaması.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Lokasyon Kartı -->
-          <div class="bg-gradient-to-tr from-slate-900 to-slate-800 rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden">
-            <div class="relative z-10 space-y-6">
-              <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Klinik Konumu & Ulaşım</span>
-              <h3 class="text-2xl font-bold">Maltepe Zümrütevler Nil Caddesi</h3>
-              <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                Nil Caddesi No:26 adresindeki kliniğimize Zümrütevler minibüsleri ve otobüs duraklarından sadece birkaç adımda kolaylıkla ulaşabilirsiniz.
-              </p>
-              
-              <div class="p-4 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-2 text-xs">
-                <div class="flex items-center gap-2 text-emerald-300">
-                  <i class="fa-solid fa-map-pin"></i> <strong>Açık Adres:</strong>
-                </div>
-                <p class="text-slate-200">Zümrütevler Mah. Nil Cd. No:26, Maltepe / İstanbul</p>
-              </div>
-
-              <div class="pt-2">
-                <a href="https://maps.google.com/?q=Zümrütevler+Nil+Cd+No:26+Maltepe" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition">
-                  <i class="fa-solid fa-diamond-turn-right"></i> Haritada Yol Tarifi Al
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- İletişim & Lokasyon Bölümü -->
-    <section id="iletisim" class="py-16 bg-slate-100 border-t border-slate-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-sm border border-slate-200">
-          <div class="grid lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <span class="text-emerald-600 font-bold uppercase tracking-wider text-xs">BİZE ULAŞIN</span>
-              <h2 class="text-3xl font-extrabold text-slate-900 mt-2 mb-4">Özel Umut Ağız ve Diş Sağlığı</h2>
-              <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                Sorularınız, tedavi ücretleri ve acil diş muayeneleri için bizi dilediğiniz zaman arayabilir veya WhatsApp üzerinden doğrudan bilgi alabilirsiniz.
-              </p>
-
-              <div class="space-y-4 text-xs sm:text-sm">
-                <div class="flex items-start gap-3">
-                  <i class="fa-solid fa-location-dot text-emerald-600 mt-1 text-base"></i>
-                  <div>
-                    <strong class="block text-slate-900">Poliklinik Adresi:</strong>
-                    <span class="text-slate-600">Zümrütevler Mah. Nil Cd. No:26, Maltepe / İstanbul</span>
-                  </div>
-                </div>
-
-                <div class="flex items-start gap-3">
-                  <i class="fa-solid fa-clock text-emerald-600 mt-1 text-base"></i>
-                  <div>
-                    <strong class="block text-slate-900">Çalışma Gün & Saatleri:</strong>
-                    <span class="text-slate-600">Pazartesi - Cumartesi: 09:00 - 22:00 <br>Pazar: 10:00 - 18:00</span>
-                  </div>
-                </div>
-
-                <div class="flex items-start gap-3">
-                  <i class="fa-solid fa-phone text-emerald-600 mt-1 text-base"></i>
-                  <div>
-                    <strong class="block text-slate-900">Telefon Hattı:</strong>
-                    <span class="text-slate-600">Randevu ve Bilgi: (0216) 000 00 00</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- WhatsApp Hızlı İletişim Kutusu -->
-            <div class="bg-slate-900 p-8 rounded-2xl text-white text-center">
-              <i class="fa-brands fa-whatsapp text-5xl text-emerald-400 mb-4"></i>
-              <h3 class="text-xl font-bold mb-2">WhatsApp ile Hemen Yazın</h3>
-              <p class="text-xs text-slate-300 mb-6">Tedavi planı, diş ağrısı veya randevu saati hakkında hızlıca yazışın.</p>
-              <a href="https://wa.me/905000000000?text=Merhaba,%20Özel%20Umut%20Diş%20Kliniği'nden%20randevu%20almak%20istiyorum." target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm transition shadow-lg shadow-emerald-500/20">
-                <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp'tan Mesaj Gönder
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ========================================================================= -->
-  <!-- 2. KLİNİK OTOMASYONU: SEKRETERYA & DENTAL CRM PANELİ                    -->
-  <!-- ========================================================================= -->
-  <main id="clinicAppView" class="hidden flex-grow bg-slate-100 py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-
-      <!-- Demo Bilgilendirme ve Sıfırlama Barı -->
-      <div class="bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 flex flex-wrap items-center justify-between gap-3 text-xs text-amber-900">
-        <div class="flex items-center gap-2">
-          <i class="fa-solid fa-circle-exclamation text-amber-600 text-sm"></i>
-          <span><strong>Simülasyon / Demo Modu (Taslak Çalışma):</strong> Aşağıdaki tabloda yer alan hasta kayıtları sistemin tanıtımı ve denenmesi için hazırlanmış örnek verilerdir.</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <button onclick="clearAllAppointments()" class="px-2.5 py-1 rounded bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold text-[11px] transition">
-            <i class="fa-regular fa-trash-can mr-1"></i> Tüm Demo Kayıtları Temizle (Boş Başla)
-          </button>
-          <button onclick="resetToSampleData()" class="px-2.5 py-1 rounded bg-white hover:bg-slate-100 text-slate-700 font-semibold text-[11px] border border-amber-200 transition">
-            <i class="fa-solid fa-rotate-left mr-1"></i> Demo Verileri Yeniden Yükle
-          </button>
-        </div>
-      </div>
-
-      <!-- Panel Başlık ve Hızlı Eylem Alanı -->
-      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <!-- Footer -->
+    <footer>
+      <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
         <div>
-          <div class="flex items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 flex items-center gap-1.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> YETKİLİ OTURUMU AKTİF
-            </span>
-            <span class="text-xs text-slate-400">Özel Umut Ağız ve Diş Sağlığı - Sekreterya Portalı</span>
-          </div>
-          <h2 class="text-2xl font-black text-slate-900 mt-1">Hasta Randevu & Klinik Yönetim Otomasyonu</h2>
-          <p class="text-xs text-slate-500">Gelen web talepleri, telefon randevuları, durum teyitleri ve tek tıkla WhatsApp bildirimi.</p>
+          <strong style="color: #fff;">Özel Umut Ağız ve Diş Sağlığı Polikliniği</strong>
+          <p style="margin-top: 4px;">Zümrütevler Nil Cd. No:26 Maltepe / İstanbul</p>
         </div>
+        <p>© 2026 Tüm Hakları Saklıdır.</p>
+      </div>
+    </footer>
+  </div>
 
-        <div class="flex items-center gap-3">
-          <button onclick="openNewAppointmentModal()" class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-2 transition shadow-md shadow-emerald-600/20">
-            <i class="fa-solid fa-plus"></i> Yeni Randevu Kaydı
-          </button>
-          <button onclick="logoutStaff()" class="px-3.5 py-2.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs border border-rose-200 transition flex items-center gap-1.5" title="Güvenli Çıkış Yap">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i> Çıkış Yap
-          </button>
+  <!-- ==============================================================
+       2. ŞİFRELİ KLİNİK YÖNETİM & SEKRETERYA OTOMASYONU
+       ============================================================== -->
+  <div id="automationApp">
+    
+    <div class="dash-nav">
+      <div class="dash-brand">
+        <i class="fa-solid fa-teeth" style="color: var(--accent); font-size: 1.4rem;"></i>
+        <h3>Özel Umut Poliklinik Takip Sistemi</h3>
+        <span>SEKRETERYA OTOMASYONU</span>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <span style="font-size: 0.85rem; color: #94a3b8;">Yetkili: <strong>Sekreterya / Admin</strong></span>
+        <button class="btn btn-outline btn-sm" style="color: #cbd5e1; border-color: #475569;" onclick="logoutAutomation()">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> Çıkış Yap
+        </button>
+      </div>
+    </div>
+
+    <div class="dash-content">
+      
+      <!-- Demo Uyarı Şeridi -->
+      <div class="demo-notice-bar">
+        <div>
+          <i class="fa-solid fa-circle-info"></i>
+          <strong>Simülasyon / Demo Modu:</strong> Aşağıdaki hasta kayıtları sistemi inceleyebilmeniz için hazırlanmış örnek verilerdir. Gerçek numara ve kişi bilgisi içermez.
         </div>
+        <button class="btn btn-outline btn-sm" style="background: rgba(245, 158, 11, 0.2); border-color: #f59e0b; color: #fde68a;" onclick="resetDemoData()">
+          <i class="fa-solid fa-rotate-left"></i> Demo Verileri Sıfırla
+        </button>
       </div>
 
       <!-- KPI Kartları -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-4">
-          <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl shrink-0">
-            <i class="fa-regular fa-calendar"></i>
-          </div>
-          <div>
-            <p class="text-xs text-slate-500 font-medium">Toplam Randevu</p>
-            <p id="kpiTotal" class="text-2xl font-black text-slate-900">0</p>
-          </div>
+      <div class="kpi-row">
+        <div class="kpi-box">
+          <div class="kpi-title">Bugünkü Randevular</div>
+          <div class="kpi-val" id="kpiTodayCount">0</div>
         </div>
-
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-4">
-          <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl shrink-0">
-            <i class="fa-solid fa-hourglass-half"></i>
-          </div>
-          <div>
-            <p class="text-xs text-slate-500 font-medium">Bekleyen Ön Talepler</p>
-            <p id="kpiPending" class="text-2xl font-black text-amber-600">0</p>
-          </div>
+        <div class="kpi-box">
+          <div class="kpi-title">Onay Bekleyen Talepler</div>
+          <div class="kpi-val" style="color: #fbbf24;" id="kpiPendingCount">0</div>
         </div>
-
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-4">
-          <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl shrink-0">
-            <i class="fa-solid fa-circle-check"></i>
-          </div>
-          <div>
-            <p class="text-xs text-slate-500 font-medium">Onaylanan Randevular</p>
-            <p id="kpiConfirmed" class="text-2xl font-black text-teal-600">0</p>
-          </div>
+        <div class="kpi-box">
+          <div class="kpi-title">Onaylanan Seanslar</div>
+          <div class="kpi-val" style="color: #4ade80;" id="kpiApprovedCount">0</div>
         </div>
-
-        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-4">
-          <div class="w-12 h-12 rounded-xl bg-slate-50 text-slate-700 flex items-center justify-center text-xl shrink-0">
-            <i class="fa-solid fa-turkish-lira-sign"></i>
-          </div>
-          <div>
-            <p class="text-xs text-slate-500 font-medium">Tahmini İşlem Tutarı</p>
-            <p id="kpiRevenue" class="text-2xl font-black text-slate-900">₺0</p>
-          </div>
+        <div class="kpi-box">
+          <div class="kpi-title">Tahmini Günlük Hacim</div>
+          <div class="kpi-val" style="color: var(--accent);" id="kpiEstimatedRev">0 ₺</div>
         </div>
       </div>
 
-      <!-- Filtreler ve Arama -->
-      <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row gap-3 items-center justify-between">
-        <div class="relative w-full md:w-96">
-          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-xs"></i>
-          <input type="text" id="searchInput" oninput="renderAppointments()" placeholder="Hasta adı, telefon veya tedavi branşı ara..." class="w-full pl-9 pr-4 py-2 rounded-xl border border-slate-300 text-xs focus:outline-none focus:ring-2 focus:ring-emerald-500">
+      <!-- Tablo ve Araçlar -->
+      <div class="panel-card">
+        <div class="table-tools">
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <input type="text" id="searchInput" class="search-box" placeholder="Hasta no veya tedavi ara..." oninput="renderTable()">
+            <select id="filterStatus" class="search-box" style="width: 140px;" onchange="renderTable()">
+              <option value="all">Tüm Durumlar</option>
+              <option value="Bekliyor">Bekliyor</option>
+              <option value="Onaylandı">Onaylandı</option>
+              <option value="Tamamlandı">Tamamlandı</option>
+              <option value="İptal">İptal</option>
+            </select>
+          </div>
+          <div>
+            <button class="btn btn-primary btn-sm" onclick="openNewModal()">
+              <i class="fa-solid fa-plus"></i> Manuel Randevu Gir
+            </button>
+          </div>
         </div>
 
-        <div class="flex items-center gap-2 w-full md:w-auto overflow-x-auto pb-1 md:pb-0">
-          <button onclick="setFilter('Tümü')" class="filter-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 text-white transition whitespace-nowrap" data-status="Tümü">Tümü</button>
-          <button onclick="setFilter('Bekliyor')" class="filter-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition whitespace-nowrap" data-status="Bekliyor">Bekleyenler</button>
-          <button onclick="setFilter('Onaylandı')" class="filter-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition whitespace-nowrap" data-status="Onaylandı">Onaylananlar</button>
-          <button onclick="setFilter('Tamamlandı')" class="filter-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition whitespace-nowrap" data-status="Tamamlandı">Tamamlananlar</button>
-          <button onclick="setFilter('İptal')" class="filter-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition whitespace-nowrap" data-status="İptal">İptal Edilenler</button>
-        </div>
-      </div>
-
-      <!-- Randevu Tablosu -->
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-        <div class="overflow-x-auto custom-scrollbar">
-          <table class="w-full text-left text-xs">
-            <thead class="bg-slate-50 text-slate-500 uppercase tracking-wider font-semibold border-b border-slate-200">
+        <div style="overflow-x: auto;">
+          <table class="data-table">
+            <thead>
               <tr>
-                <th class="py-3.5 px-4">Hasta Bilgisi</th>
-                <th class="py-3.5 px-4">Tedavi & Şikayet</th>
-                <th class="py-3.5 px-4">Tarih & Saat</th>
-                <th class="py-3.5 px-4">Tahmini Ücret</th>
-                <th class="py-3.5 px-4">Durum</th>
-                <th class="py-3.5 px-4 text-center">WhatsApp / SMS</th>
-                <th class="py-3.5 px-4 text-right">İşlemler</th>
+                <th>Kayıt Kodu</th>
+                <th>Danışan / Hasta Referansı</th>
+                <th>İletişim</th>
+                <th>Tedavi</th>
+                <th>Tarih / Tercih</th>
+                <th>Durum</th>
+                <th>Hızlı WhatsApp Bildirimi</th>
+                <th>İşlem</th>
               </tr>
             </thead>
-            <tbody id="appointmentTableBody" class="divide-y divide-slate-100">
-              <!-- Dinamik doldurulur -->
+            <tbody id="appointmentTableBody">
+              <!-- JS render -->
             </tbody>
           </table>
         </div>
-
-        <!-- Boş Durum Göstergesi -->
-        <div id="emptyState" class="hidden py-16 text-center text-slate-400">
-          <i class="fa-regular fa-folder-open text-4xl mb-3 text-slate-300"></i>
-          <p class="text-sm font-semibold text-slate-600">Gösterilecek randevu kaydı bulunamadı.</p>
-          <p class="text-xs text-slate-400 mt-1">Filtre kriterlerini temizleyebilir veya yeni randevu ekleyebilirsiniz.</p>
-        </div>
-      </div>
-
-    </div>
-  </main>
-
-  <!-- ========================================================================= -->
-  <!-- MODAL: PERSONEL GİRİŞİ (AUTH GATE)                                       -->
-  <!-- ========================================================================= -->
-  <div id="staffLoginModal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white w-full max-w-sm rounded-2xl shadow-2xl border border-slate-100 overflow-hidden">
-      <div class="p-6 text-center border-b border-slate-100 bg-slate-50">
-        <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto mb-3 text-xl shadow-inner">
-          <i class="fa-solid fa-user-shield"></i>
-        </div>
-        <h3 class="text-base font-bold text-slate-900">Klinik Yetkili Girişi</h3>
-        <p class="text-xs text-slate-500 mt-1">Özel Umut Diş Polikliniği sekreterya ve personel erişim ekranı.</p>
-      </div>
-
-      <form id="staffLoginForm" onsubmit="handleStaffLogin(event)" class="p-6 space-y-4 text-xs">
-        <div>
-          <label class="block font-semibold text-slate-700 mb-1">Kullanıcı Adı</label>
-          <div class="relative">
-            <i class="fa-regular fa-user absolute left-3 top-2.5 text-slate-400"></i>
-            <input type="text" id="loginUser" required placeholder="admin veya sekreterya" class="w-full pl-8 pr-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500">
-          </div>
-        </div>
-
-        <div>
-          <label class="block font-semibold text-slate-700 mb-1">Şifre / Giriş PIN'i</label>
-          <div class="relative">
-            <i class="fa-solid fa-key absolute left-3 top-2.5 text-slate-400"></i>
-            <input type="password" id="loginPass" required placeholder="••••" class="w-full pl-8 pr-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500">
-          </div>
-          <div class="flex justify-between items-center mt-2 text-[10px] text-slate-500 bg-emerald-50/70 p-2 rounded border border-emerald-100">
-            <span>Örnek Deneme Girişi:</span>
-            <span class="font-mono font-bold text-emerald-800">admin / 1234</span>
-          </div>
-        </div>
-
-        <div class="pt-2 flex gap-2">
-          <button type="button" onclick="closeStaffLoginModal()" class="flex-1 py-2.5 rounded-lg border border-slate-300 font-semibold text-slate-600 hover:bg-slate-50">Kapat</button>
-          <button type="submit" class="flex-1 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold shadow-md shadow-emerald-600/20">Giriş Yap</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- ========================================================================= -->
-  <!-- MODAL: YENİ RANDEVU EKLEME                                               -->
-  <!-- ========================================================================= -->
-  <div id="newAppointmentModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl border border-slate-100 overflow-hidden">
-      <div class="px-6 py-4 bg-slate-50 border-b border-slate-200 flex justify-between items-center">
-        <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
-          <i class="fa-solid fa-calendar-plus text-emerald-600"></i> Yeni Randevu / Hasta Kaydı
-        </h3>
-        <button onclick="closeNewAppointmentModal()" class="text-slate-400 hover:text-slate-600 text-lg">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-
-      <form id="adminAppointmentForm" onsubmit="handleAdminBooking(event)" class="p-6 space-y-4 text-xs">
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="block font-semibold text-slate-700 mb-1">Hasta Adı Soyadı *</label>
-            <input type="text" id="admName" required placeholder="Ad Soyad" class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-emerald-500">
-          </div>
-          <div>
-            <label class="block font-semibold text-slate-700 mb-1">Telefon Numarası *</label>
-            <input type="tel" id="admPhone" required placeholder="0532 000 00 00" class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-emerald-500">
-          </div>
-        </div>
-
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="block font-semibold text-slate-700 mb-1">Tedavi Branşı</label>
-            <select id="admTreatment" class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-emerald-500 bg-white">
-              <option value="İmplant Tedavisi">İmplant Cerrahisi</option>
-              <option value="Zirkonyum Kaplama">Zirkonyum Kaplama</option>
-              <option value="Kanal Tedavisi (Endodonti)">Kanal Tedavisi</option>
-              <option value="20'lik Diş Çekimi">20'lik Diş Çekimi</option>
-              <option value="Çocuk Diş (Pedodonti)">Çocuk Diş Tedavisi</option>
-              <option value="Genel Kontrol & Diş Taşı">Genel Kontrol & Diş Taşı</option>
-            </select>
-          </div>
-          <div>
-            <label class="block font-semibold text-slate-700 mb-1">Randevu Durumu</label>
-            <select id="admStatus" class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-emerald-500 bg-white">
-              <option value="Onaylandı">Onaylandı</option>
-              <option value="Bekliyor">Bekliyor (Teyit Alınacak)</option>
-              <option value="Tamamlandı">Tamamlandı</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-3 gap-3">
-          <div>
-            <label class="block font-semibold text-slate-700 mb-1">Tarih</label>
-            <input type="date" id="admDate" required class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-emerald-500">
-          </div>
-          <div>
-            <label class="block font-semibold text-slate-700 mb-1">Saat</label>
-            <input type="time" id="admTime" required value="14:00" class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-emerald-500">
-          </div>
-          <div>
-            <label class="block font-semibold text-slate-700 mb-1">Tahmini Tutar (₺)</label>
-            <input type="number" id="admPrice" placeholder="₺1500" class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-emerald-500">
-          </div>
-        </div>
-
-        <div>
-          <label class="block font-semibold text-slate-700 mb-1">Klinik Notu / Şikayet</label>
-          <textarea id="admNotes" rows="2" placeholder="Hasta şikayeti, alerji durumu, çekim öncesi röntgen..." class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-emerald-500 resize-none"></textarea>
-        </div>
-
-        <div class="pt-2 flex justify-end gap-2">
-          <button type="button" onclick="closeNewAppointmentModal()" class="px-4 py-2 rounded-lg border border-slate-300 text-slate-700 font-semibold hover:bg-slate-50">İptal</button>
-          <button type="submit" class="px-5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold shadow-md shadow-emerald-600/20">Kaydet</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- ========================================================================= -->
-  <!-- MODAL: SMS / WHATSAPP ŞABLON MOTORU                                      -->
-  <!-- ========================================================================= -->
-  <div id="notifyModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
-    <div class="bg-white w-full max-w-md rounded-2xl shadow-2xl border border-slate-100 overflow-hidden">
-      <div class="px-6 py-4 bg-slate-50 border-b border-slate-200 flex justify-between items-center">
-        <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
-          <i class="fa-solid fa-paper-plane text-emerald-600"></i> WhatsApp / SMS Bildirim Motoru
-        </h3>
-        <button onclick="closeNotifyModal()" class="text-slate-400 hover:text-slate-600">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-
-      <div class="p-6 space-y-4 text-xs">
-        <div>
-          <label class="block font-semibold text-slate-700 mb-1">Alıcı Hasta:</label>
-          <p id="notifyTargetPatient" class="text-sm font-bold text-slate-900"></p>
-        </div>
-
-        <div>
-          <label class="block font-semibold text-slate-700 mb-1">Şablon Seçin:</label>
-          <select id="notifyTemplateSelect" onchange="updateNotifyPreview()" class="w-full px-3 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-emerald-500 bg-white">
-            <option value="confirm">Randevu Onaylandı & Hatırlatma</option>
-            <option value="reminder">Yarınki Seans Hatırlatması</option>
-            <option value="completed">Tedavi Sonrası Geçmiş Olsun Mesajı</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="block font-semibold text-slate-700 mb-1">Hazır Mesaj Önizlemesi:</label>
-          <textarea id="notifyTextPreview" rows="5" class="w-full p-3 rounded-xl bg-slate-50 border border-slate-200 font-mono text-[11px] text-slate-800 resize-none focus:outline-none"></textarea>
-        </div>
-
-        <div class="flex gap-2 pt-2">
-          <button onclick="copyNotifyMessage()" class="flex-1 py-2.5 rounded-xl border border-slate-300 font-bold text-slate-700 hover:bg-slate-100 flex items-center justify-center gap-2">
-            <i class="fa-regular fa-copy"></i> Metni Kopyala
-          </button>
-          <button onclick="sendToWhatsAppWeb()" class="flex-1 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold flex items-center justify-center gap-2 shadow-md shadow-emerald-600/20">
-            <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp'tan Gönder
-          </button>
-        </div>
       </div>
     </div>
   </div>
 
-  <!-- Alt Bilgi / Footer -->
-  <footer class="bg-slate-900 text-slate-400 text-xs py-8 border-t border-slate-800 mt-auto">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-2">
-        <i class="fa-solid fa-tooth text-emerald-400 text-base"></i>
-        <span class="font-bold text-white tracking-wide">Özel Umut Ağız ve Diş Sağlığı Polikliniği</span>
+  <!-- ==============================================================
+       MODALLAR & POPUPLAR
+       ============================================================== -->
+
+  <!-- Giriş Modalı -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal-box">
+      <div class="modal-title"><i class="fa-solid fa-lock" style="color: var(--accent);"></i> Klinik Sekreterya Girişi</div>
+      <div class="modal-desc">Yalnızca poliklinik personeli ve yetkili hekimlerin erişimine açıktır.</div>
+      <div class="form-group">
+        <label>Kullanıcı Adı</label>
+        <input type="text" id="loginUser" class="form-control" value="admin" placeholder="Kullanıcı adı">
       </div>
-      <div>
-        Zümrütevler Mah. Nil Cd. No:26, Maltepe / İstanbul | Tel: (0216) 000 00 00
+      <div class="form-group">
+        <label>Giriş Şifresi</label>
+        <input type="password" id="loginPass" class="form-control" value="1234" placeholder="Şifreniz">
       </div>
-      <div class="text-slate-500">
-        &copy; 2026 Özel Umut Diş Sağlığı & Sekreterya Portalı.
+      <div style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 16px;">
+        <i class="fa-solid fa-key"></i> Demo Giriş Bilgisi: Kullanıcı: <strong>admin</strong> / Şifre: <strong>1234</strong>
+      </div>
+      <div style="display: flex; gap: 10px; justify-content: flex-end;">
+        <button class="btn btn-outline btn-sm" onclick="closeLoginModal()">İptal</button>
+        <button class="btn btn-primary btn-sm" onclick="handleLogin()">Panele Giriş Yap</button>
       </div>
     </div>
-  </footer>
+  </div>
 
-  <!-- ========================================================================= -->
-  <!-- JAVASCRIPT: LOCALSTORAGE, OTURUM KONTROLÜ VE CRM İŞLEYİŞİ                -->
-  <!-- ========================================================================= -->
+  <!-- Manuel Randevu Modalı -->
+  <div class="modal-overlay" id="newAppointmentModal">
+    <div class="modal-box">
+      <div class="modal-title">Yeni Randevu Kaydı</div>
+      <div class="modal-desc">Telefonla veya kapıdan gelen hasta için randevu oluşturun.</div>
+      <div class="form-group">
+        <label>Danışan / Hasta Referansı</label>
+        <input type="text" id="newPatName" class="form-control" placeholder="Örn: Örnek Hasta #5" required>
+      </div>
+      <div class="form-group">
+        <label>Telefon Numarası</label>
+        <input type="tel" id="newPatPhone" class="form-control" value="0500 000 00 00">
+      </div>
+      <div class="form-group">
+        <label>Tedavi</label>
+        <select id="newPatTreatment" class="form-control">
+          <option>İmplant Muayenesi</option>
+          <option>Zirkonyum Kuron</option>
+          <option>Dolgu / Kanal</option>
+          <option>Diş Taşı Temizliği</option>
+          <option>Genel Kontrol</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Randevu Saati / Not</label>
+        <input type="text" id="newPatTime" class="form-control" placeholder="Örn: Bugün 19:30">
+      </div>
+      <div style="display: flex; gap: 10px; justify-content: flex-end;">
+        <button class="btn btn-outline btn-sm" onclick="closeNewModal()">Kapat</button>
+        <button class="btn btn-primary btn-sm" onclick="saveNewAppointment()">Kaydet</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Bildirimi -->
+  <div class="toast" id="toastMsg">İşlem başarıyla tamamlandı.</div>
+
+  <!-- JAVASCRIPT MOTORU -->
   <script>
-    // Başlangıç Demo Verileri (Zümrütevler kliniğine özel örnek kayıtlar)
-    const SAMPLE_RECORDS = [
+    // Gerçek kişi veya numara içermeyen örnek veritabanı
+    const DEFAULT_DATA = [
       {
-        id: "UMUT-101",
-        name: "Hasan Yılmaz",
-        phone: "0532 111 22 33",
-        treatment: "20'lik Diş Çekimi",
-        date: "2026-11-21",
-        time: "18:30",
-        price: 2500,
-        status: "Onaylandı",
-        notes: "Sağ alt gömülü 20'lik diş için akşam seansı talep edildi."
-      },
-      {
-        id: "UMUT-102",
-        name: "Fatma Karaca",
-        phone: "0544 333 44 55",
-        treatment: "Zirkonyum Kaplama",
-        date: "2026-11-21",
-        time: "15:00",
-        price: 16000,
+        id: "UMT-101",
+        name: "Örnek Hasta (İmplant Tedavisi)",
+        phone: "0500 000 00 00",
+        treatment: "İmplantoloji / Vida Kontrolü",
+        time: "Bugün 18:30 (Akşam Seansı)",
         status: "Bekliyor",
-        notes: "Ön dişlerde estetik kaplama ve renk değişimi şikayeti."
+        price: 9500
       },
       {
-        id: "UMUT-103",
-        name: "Ali Rıza Koç",
-        phone: "0505 555 66 77",
-        treatment: "İmplant Tedavisi",
-        date: "2026-11-22",
-        time: "11:30",
-        price: 14000,
+        id: "UMT-102",
+        name: "Örnek Hasta (Zirkonyum Kaplama)",
+        phone: "0500 000 00 00",
+        treatment: "Zirkonyum Ölçü & Tasarım",
+        time: "Bugün 19:15",
         status: "Onaylandı",
-        notes: "Üst çene tek diş eksikliği için implant planlaması."
+        price: 8000
       },
       {
-        id: "UMUT-104",
-        name: "Ayşe Tekin",
-        phone: "0533 777 88 99",
-        treatment: "Kanal Tedavisi (Endodonti)",
-        date: "2026-11-20",
-        time: "19:00",
-        price: 3500,
+        id: "UMT-103",
+        name: "Örnek Hasta (Kanal Tedavisi)",
+        phone: "0500 000 00 00",
+        treatment: "Acil Kanal & Dolgu Seansı",
+        time: "Bugün 20:00 (Nöbetçi Randevu)",
+        status: "Onaylandı",
+        price: 4500
+      },
+      {
+        id: "UMT-104",
+        name: "Örnek Hasta (Diş Beyazlatma)",
+        phone: "0500 000 00 00",
+        treatment: "Detertraj & Bleaching",
+        time: "Yarın 11:30",
         status: "Tamamlandı",
-        notes: "Akut ağrılı azı dişi tedavisi tamamlandı, dolgu yapıldı."
-      },
-      {
-        id: "UMUT-105",
-        name: "Efehan Öztürk (Veli: Nurhan)",
-        phone: "0530 999 00 11",
-        treatment: "Çocuk Diş (Pedodonti)",
-        date: "2026-11-23",
-        time: "16:00",
-        price: 1800,
-        status: "Bekliyor",
-        notes: "Süt dişi dolgu ve flor uygulaması."
+        price: 3200
       }
     ];
 
-    const STORAGE_KEY = "ozel_umut_dental_records";
-    const AUTH_KEY = "ozel_umut_staff_session";
+    let appointments = [];
 
-    let currentFilter = "Tümü";
-    let activeNotifyAppointment = null;
-
-    // LocalStorage İşlemleri
-    function getAppointments() {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (!stored) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(SAMPLE_RECORDS));
-        return SAMPLE_RECORDS;
+    // Başlangıç Yüklemesi
+    window.addEventListener('DOMContentLoaded', () => {
+      const stored = localStorage.getItem('umut_demo_appointments_v2');
+      if (stored) {
+        appointments = JSON.parse(stored);
+      } else {
+        appointments = DEFAULT_DATA;
+        localStorage.setItem('umut_demo_appointments_v2', JSON.stringify(appointments));
       }
-      try {
-        return JSON.parse(stored);
-      } catch (e) {
-        return SAMPLE_RECORDS;
-      }
-    }
+      renderTable();
+      updateKPIs();
+    });
 
-    function saveAppointments(data) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-      renderAppointments();
+    function saveToStorage() {
+      localStorage.setItem('umut_demo_appointments_v2', JSON.stringify(appointments));
+      renderTable();
       updateKPIs();
     }
 
-    function resetToSampleData() {
-      saveAppointments(SAMPLE_RECORDS);
-      showToast("Örnek demo veriler yeniden yüklendi.", "info");
-    }
-
-    function clearAllAppointments() {
-      saveAppointments([]);
-      showToast("Tüm demo kayıtlar temizlendi. Yeni hasta ekleyebilirsiniz.", "warning");
-    }
-
-    // Yetkili Giriş Modalı & Oturum
-    function openStaffLoginModal() {
-      const isAuth = sessionStorage.getItem(AUTH_KEY);
-      if (isAuth === "true") {
-        toggleView("app");
-        return;
-      }
-      document.getElementById("staffLoginModal").classList.remove("hidden");
-    }
-
-    function closeStaffLoginModal() {
-      document.getElementById("staffLoginModal").classList.add("hidden");
-      document.getElementById("staffLoginForm").reset();
-    }
-
-    function handleStaffLogin(e) {
-      e.preventDefault();
-      const user = document.getElementById("loginUser").value.trim().toLowerCase();
-      const pass = document.getElementById("loginPass").value.trim();
-
-      // Özel Umut Şifreli Giriş Kontrolleri
-      if ((user === "admin" || user === "sekreterya" || user === "umut") && (pass === "1234" || pass === "umut2026")) {
-        sessionStorage.setItem(AUTH_KEY, "true");
-        closeStaffLoginModal();
-        toggleView("app");
-        showToast("Yetkili girişi başarılı. Özel Umut Otomasyonuna hoş geldiniz!", "success");
-      } else {
-        showToast("Hatalı kullanıcı adı veya şifre girdiniz!", "danger");
-      }
-    }
-
-    function logoutStaff() {
-      sessionStorage.removeItem(AUTH_KEY);
-      toggleView("site");
-      showToast("Klinik oturumu güvenle kapatıldı.", "info");
-    }
-
-    function returnToWebsite() {
-      toggleView("site");
-    }
-
-    // Görünüm Değiştirici
-    function toggleView(targetView) {
-      const siteView = document.getElementById("publicSiteView");
-      const appView = document.getElementById("clinicAppView");
-      const siteNavMenu = document.getElementById("siteNavMenu");
-      const headerBookBtn = document.getElementById("headerBookBtn");
-      const staffLoginBtn = document.getElementById("staffLoginBtn");
-
-      if (targetView === "app") {
-        siteView.classList.add("hidden");
-        appView.classList.remove("hidden");
-        siteNavMenu.classList.add("hidden");
-        headerBookBtn.classList.add("hidden");
-        staffLoginBtn.innerHTML = `<i class="fa-solid fa-arrow-left"></i> <span>Web Sitesine Dön</span>`;
-        staffLoginBtn.onclick = returnToWebsite;
-        renderAppointments();
-        updateKPIs();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else {
-        appView.classList.add("hidden");
-        siteView.classList.remove("hidden");
-        siteNavMenu.classList.remove("hidden");
-        headerBookBtn.classList.remove("hidden");
-        staffLoginBtn.innerHTML = `<i class="fa-solid fa-lock text-slate-400"></i> <span>Klinik Girişi</span>`;
-        staffLoginBtn.onclick = openStaffLoginModal;
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-    }
-
-    // Toast Bildirimleri
-    function showToast(message, type = "success") {
-      const container = document.getElementById("toastContainer");
-      const toast = document.createElement("div");
-      
-      const colors = {
-        success: "bg-emerald-600 text-white",
-        info: "bg-teal-600 text-white",
-        warning: "bg-amber-600 text-white",
-        danger: "bg-rose-600 text-white"
-      };
-      
-      const icons = {
-        success: "fa-circle-check",
-        info: "fa-circle-info",
-        warning: "fa-triangle-exclamation",
-        danger: "fa-circle-xmark"
-      };
-
-      toast.className = `${colors[type] || colors.info} px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 text-xs font-semibold toast-active pointer-events-auto transition max-w-sm`;
-      toast.innerHTML = `<i class="fa-solid ${icons[type] || icons.info} text-base"></i> <span>${message}</span>`;
-      
-      container.appendChild(toast);
+    // Toast Gösterici
+    function showToast(text) {
+      const t = document.getElementById('toastMsg');
+      t.innerText = text;
+      t.classList.add('show');
       setTimeout(() => {
-        toast.style.opacity = "0";
-        setTimeout(() => toast.remove(), 300);
+        t.classList.remove('show');
       }, 3500);
     }
 
-    // Hasta Arayüzü Randevu Formu
+    // Hasta Arayüzü Formu
     function handlePublicBooking(e) {
       e.preventDefault();
-      const name = document.getElementById("patientName").value.trim();
-      const phone = document.getElementById("patientPhone").value.trim();
-      const treatment = document.getElementById("patientTreatment").value;
-      const date = document.getElementById("patientDate").value;
-      const time = document.getElementById("patientTime").value;
-      const notes = document.getElementById("patientNotes").value.trim();
+      const name = document.getElementById('patientName').value.trim();
+      const phone = document.getElementById('patientPhone').value.trim();
+      const treatment = document.getElementById('treatmentType').value;
+      const time = document.getElementById('preferredTime').value;
 
+      const newId = "UMT-" + Math.floor(100 + Math.random() * 900);
       const newRecord = {
-        id: "UMUT-" + Math.floor(100 + Math.random() * 900),
+        id: newId,
         name: name,
         phone: phone,
         treatment: treatment,
-        date: date,
         time: time,
-        price: 1500, // Varsayılan danışmanlık/muayene kotası
         status: "Bekliyor",
-        notes: notes || "Web sitesi hasta ön başvuru formu."
+        price: 3000
       };
 
-      const current = getAppointments();
-      current.unshift(newRecord);
-      saveAppointments(current);
+      appointments.unshift(newRecord);
+      saveToStorage();
 
-      document.getElementById("publicAppointmentForm").reset();
-      showToast(`Teşekkürler Sn. ${name}, randevu talebiniz Özel Umut poliklinik sekreteryasına iletildi!`, "success");
+      document.getElementById('publicAppointmentForm').reset();
+      showToast("Ön randevu talebiniz başarıyla alındı. Poliklinik sekreteryası sizinle iletişime geçecektir.");
     }
 
-    // Admin Panelinden Yeni Randevu Ekleme
-    function openNewAppointmentModal() {
-      const today = new Date().toISOString().split("T")[0];
-      document.getElementById("admDate").value = today;
-      document.getElementById("newAppointmentModal").classList.remove("hidden");
-    }
+    // Tabloyu Ekrana Basma
+    function renderTable() {
+      const tbody = document.getElementById('appointmentTableBody');
+      const search = document.getElementById('searchInput').value.toLowerCase();
+      const filter = document.getElementById('filterStatus').value;
 
-    function closeNewAppointmentModal() {
-      document.getElementById("newAppointmentModal").classList.add("hidden");
-      document.getElementById("adminAppointmentForm").reset();
-    }
+      tbody.innerHTML = '';
 
-    function handleAdminBooking(e) {
-      e.preventDefault();
-      const name = document.getElementById("admName").value.trim();
-      const phone = document.getElementById("admPhone").value.trim();
-      const treatment = document.getElementById("admTreatment").value;
-      const date = document.getElementById("admDate").value;
-      const time = document.getElementById("admTime").value;
-      const price = parseInt(document.getElementById("admPrice").value) || 0;
-      const status = document.getElementById("admStatus").value;
-      const notes = document.getElementById("admNotes").value.trim();
-
-      const newRecord = {
-        id: "UMUT-" + Math.floor(100 + Math.random() * 900),
-        name,
-        phone,
-        treatment,
-        date,
-        time,
-        price,
-        status,
-        notes: notes || "Sekreterya tarafından kaydedildi."
-      };
-
-      const current = getAppointments();
-      current.unshift(newRecord);
-      saveAppointments(current);
-
-      closeNewAppointmentModal();
-      showToast("Yeni hasta randevusu başarıyla sisteme kaydedildi.", "success");
-    }
-
-    // Randevu Durumunu Güncelleme
-    function updateAppointmentStatus(id, newStatus) {
-      const list = getAppointments();
-      const target = list.find(item => item.id === id);
-      if (target) {
-        target.status = newStatus;
-        saveAppointments(list);
-        showToast(`${target.name} randevusu: "${newStatus}" yapıldı.`, "info");
-      }
-    }
-
-    // Randevu Silme
-    function deleteAppointment(id) {
-      const list = getAppointments();
-      const updated = list.filter(item => item.id !== id);
-      saveAppointments(updated);
-      showToast("Randevu kaydı silindi.", "warning");
-    }
-
-    // Filtreleme
-    function setFilter(status) {
-      currentFilter = status;
-      document.querySelectorAll(".filter-tab").forEach(tab => {
-        if (tab.dataset.status === status) {
-          tab.className = "filter-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 text-white transition whitespace-nowrap";
-        } else {
-          tab.className = "filter-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200 transition whitespace-nowrap";
-        }
+      const filtered = appointments.filter(item => {
+        const matchesSearch = item.name.toLowerCase().includes(search) || 
+                              item.treatment.toLowerCase().includes(search) || 
+                              item.id.toLowerCase().includes(search);
+        const matchesStatus = (filter === 'all') ? true : item.status === filter;
+        return matchesSearch && matchesStatus;
       });
-      renderAppointments();
-    }
 
-    // KPI Sayaçları
-    function updateKPIs() {
-      const list = getAppointments();
-      const total = list.length;
-      const pending = list.filter(i => i.status === "Bekliyor").length;
-      const confirmed = list.filter(i => i.status === "Onaylandı" || i.status === "Tamamlandı").length;
-      const revenue = list.reduce((acc, curr) => acc + (Number(curr.price) || 0), 0);
-
-      document.getElementById("kpiTotal").textContent = total;
-      document.getElementById("kpiPending").textContent = pending;
-      document.getElementById("kpiConfirmed").textContent = confirmed;
-      document.getElementById("kpiRevenue").textContent = "₺" + revenue.toLocaleString("tr-TR");
-    }
-
-    // Tabloyu Çizdirme
-    function renderAppointments() {
-      const tableBody = document.getElementById("appointmentTableBody");
-      const emptyState = document.getElementById("emptyState");
-      const query = (document.getElementById("searchInput")?.value || "").toLowerCase().trim();
-      let list = getAppointments();
-
-      if (currentFilter !== "Tümü") {
-        list = list.filter(i => i.status === currentFilter);
-      }
-
-      if (query) {
-        list = list.filter(i => 
-          i.name.toLowerCase().includes(query) ||
-          i.phone.toLowerCase().includes(query) ||
-          i.treatment.toLowerCase().includes(query)
-        );
-      }
-
-      if (list.length === 0) {
-        tableBody.innerHTML = "";
-        emptyState.classList.remove("hidden");
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding: 24px; color:#94a3b8;">Kayıt bulunamadı.</td></tr>`;
         return;
       }
 
-      emptyState.classList.add("hidden");
+      filtered.forEach(item => {
+        const tr = document.createElement('tr');
+        
+        // WhatsApp Şablon Mesajı
+        const waText = encodeURIComponent(`Sayın ${item.name}, Özel Umut Ağız ve Diş Sağlığı Polikliniği (${item.time}) randevunuz oluşturulmuştur. Nil Cd. No:26 Maltepe adresimize bekleriz.`);
+        const waLink = `https://wa.me/905000000000?text=${waText}`;
 
-      tableBody.innerHTML = list.map(item => {
-        let statusBadge = "";
-        if (item.status === "Onaylandı") {
-          statusBadge = `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-100 text-emerald-800"><i class="fa-solid fa-check text-[9px]"></i> Onaylandı</span>`;
-        } else if (item.status === "Bekliyor") {
-          statusBadge = `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-amber-100 text-amber-800"><i class="fa-solid fa-clock text-[9px]"></i> Bekliyor</span>`;
-        } else if (item.status === "Tamamlandı") {
-          statusBadge = `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-teal-100 text-teal-800"><i class="fa-solid fa-circle-check text-[9px]"></i> Tamamlandı</span>`;
-        } else {
-          statusBadge = `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-rose-100 text-rose-800"><i class="fa-solid fa-xmark text-[9px]"></i> İptal</span>`;
-        }
+        let statusClass = "status-bekliyor";
+        if (item.status === "Onaylandı") statusClass = "status-onaylandi";
+        if (item.status === "Tamamlandı") statusClass = "status-tamamlandi";
+        if (item.status === "İptal") statusClass = "status-iptal";
 
-        return `
-          <tr class="hover:bg-slate-50 transition border-b border-slate-100">
-            <td class="py-3 px-4">
-              <div class="font-bold text-slate-900 text-sm">${escapeHtml(item.name)}</div>
-              <div class="text-slate-500 text-xs flex items-center gap-1 mt-0.5">
-                <i class="fa-solid fa-phone text-[10px] text-slate-400"></i> ${escapeHtml(item.phone)}
-              </div>
-              <div class="text-[10px] text-slate-400 mt-0.5">Protokol: ${item.id}</div>
-            </td>
-
-            <td class="py-3 px-4">
-              <div class="font-semibold text-slate-800">${escapeHtml(item.treatment)}</div>
-              ${item.notes ? `<div class="text-[11px] text-slate-500 italic mt-0.5 truncate max-w-xs" title="${escapeHtml(item.notes)}">${escapeHtml(item.notes)}</div>` : ''}
-            </td>
-
-            <td class="py-3 px-4 whitespace-nowrap">
-              <div class="font-medium text-slate-800"><i class="fa-regular fa-calendar text-slate-400 mr-1"></i> ${item.date}</div>
-              <div class="text-slate-500 font-semibold mt-0.5"><i class="fa-regular fa-clock text-slate-400 mr-1"></i> ${item.time}</div>
-            </td>
-
-            <td class="py-3 px-4 font-bold text-slate-900 whitespace-nowrap">
-              ₺${(Number(item.price) || 0).toLocaleString("tr-TR")}
-            </td>
-
-            <td class="py-3 px-4 whitespace-nowrap">
-              <select onchange="updateAppointmentStatus('${item.id}', this.value)" class="text-xs rounded-lg border border-slate-200 px-2 py-1 bg-white font-medium focus:ring-1 focus:ring-emerald-500">
-                <option value="Bekliyor" ${item.status === "Bekliyor" ? "selected" : ""}>Bekliyor</option>
-                <option value="Onaylandı" ${item.status === "Onaylandı" ? "selected" : ""}>Onaylandı</option>
-                <option value="Tamamlandı" ${item.status === "Tamamlandı" ? "selected" : ""}>Tamamlandı</option>
-                <option value="İptal" ${item.status === "İptal" ? "selected" : ""}>İptal</option>
-              </select>
-              <div class="mt-1">${statusBadge}</div>
-            </td>
-
-            <td class="py-3 px-4 text-center whitespace-nowrap">
-              <button onclick="openNotifyModal('${item.id}')" class="px-2.5 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-600 hover:text-white font-semibold transition inline-flex items-center gap-1.5">
-                <i class="fa-brands fa-whatsapp"></i> WhatsApp / SMS
-              </button>
-            </td>
-
-            <td class="py-3 px-4 text-right whitespace-nowrap">
-              <button onclick="deleteAppointment('${item.id}')" class="w-8 h-8 rounded-lg bg-slate-100 hover:bg-rose-50 text-slate-500 hover:text-rose-600 transition" title="Randevuyu Sil">
-                <i class="fa-regular fa-trash-can"></i>
-              </button>
-            </td>
-          </tr>
+        tr.innerHTML = `
+          <td><strong>${item.id}</strong></td>
+          <td><strong>${item.name}</strong></td>
+          <td style="color: #94a3b8;">${item.phone}</td>
+          <td>${item.treatment}</td>
+          <td><i class="fa-regular fa-clock" style="color:var(--accent); margin-right:4px;"></i>${item.time}</td>
+          <td>
+            <select onchange="changeStatus('${item.id}', this.value)" class="form-control" style="padding:4px 8px; font-size:0.75rem; width:110px; background:#0f172a; color:#fff; border-color:#334155;">
+              <option value="Bekliyor" ${item.status === 'Bekliyor' ? 'selected':''}>Bekliyor</option>
+              <option value="Onaylandı" ${item.status === 'Onaylandı' ? 'selected':''}>Onaylandı</option>
+              <option value="Tamamlandı" ${item.status === 'Tamamlandı' ? 'selected':''}>Tamamlandı</option>
+              <option value="İptal" ${item.status === 'İptal' ? 'selected':''}>İptal</option>
+            </select>
+          </td>
+          <td>
+            <a href="${waLink}" target="_blank" class="btn btn-sm" style="background:#059669; color:#fff; font-size:0.75rem; padding:4px 8px;">
+              <i class="fa-brands fa-whatsapp"></i> Onay İlet
+            </a>
+          </td>
+          <td>
+            <button onclick="deleteRecord('${item.id}')" style="background:none; border:none; color:#f87171; cursor:pointer; font-size:0.9rem;" title="Kaydı Sil">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </td>
         `;
-      }).join("");
+        tbody.appendChild(tr);
+      });
     }
 
-    // WhatsApp / SMS Bildirim Motoru
-    function openNotifyModal(id) {
-      const list = getAppointments();
-      const app = list.find(i => i.id === id);
-      if (!app) return;
-
-      activeNotifyAppointment = app;
-      document.getElementById("notifyTargetPatient").textContent = `${app.name} (${app.phone}) - ${app.date} ${app.time}`;
-      updateNotifyPreview();
-      document.getElementById("notifyModal").classList.remove("hidden");
+    function changeStatus(id, newStatus) {
+      const record = appointments.find(r => r.id === id);
+      if (record) {
+        record.status = newStatus;
+        saveToStorage();
+        showToast(`${id} durumu "${newStatus}" olarak güncellendi.`);
+      }
     }
 
-    function closeNotifyModal() {
-      document.getElementById("notifyModal").classList.add("hidden");
-      activeNotifyAppointment = null;
+    function deleteRecord(id) {
+      if (confirm(`${id} kodlu randevu kaydını silmek istediğinize emin misiniz?`)) {
+        appointments = appointments.filter(r => r.id !== id);
+        saveToStorage();
+        showToast("Randevu kaydı silindi.");
+      }
     }
 
-    function updateNotifyPreview() {
-      if (!activeNotifyAppointment) return;
-      const type = document.getElementById("notifyTemplateSelect").value;
-      const a = activeNotifyAppointment;
+    function updateKPIs() {
+      document.getElementById('kpiTodayCount').innerText = appointments.length;
+      document.getElementById('kpiPendingCount').innerText = appointments.filter(a => a.status === 'Bekliyor').length;
+      document.getElementById('kpiApprovedCount').innerText = appointments.filter(a => a.status === 'Onaylandı').length;
+      
+      const totalRev = appointments
+        .filter(a => a.status === 'Onaylandı' || a.status === 'Tamamlandı')
+        .reduce((sum, a) => sum + (a.price || 0), 0);
+      document.getElementById('kpiEstimatedRev').innerText = totalRev.toLocaleString('tr-TR') + " ₺";
+    }
 
-      let msg = "";
-      if (type === "confirm") {
-        msg = `Sayın ${a.name}, Özel Umut Ağız ve Diş Sağlığı Polikliniği randevunuz ${a.date} günü saat ${a.time} için ${a.treatment} branşında onaylanmıştır.\n\nKliniğimiz Zümrütevler Mah. Nil Cd. No:26 Maltepe adresindedir.\nSağlıklı günler dileriz!`;
-      } else if (type === "reminder") {
-        msg = `Sayın ${a.name}, yarın (${a.date}) saat ${a.time}'deki Özel Umut Diş Polikliniği randevunuzu hatırlatır, bir değişiklik durumunda bize bilgi vermenizi rica ederiz. Zümrütevler Nil Cd. No:26.`;
+    function resetDemoData() {
+      if (confirm("Mevcut veriler sıfırlanıp varsayılan anonim demo listesi yüklensin mi?")) {
+        appointments = JSON.parse(JSON.stringify(DEFAULT_DATA));
+        saveToStorage();
+        showToast("Tüm demo verileri sıfırlandı.");
+      }
+    }
+
+    // Modal Yönetimi & Kimlik Doğrulama
+    function openLoginModal() {
+      document.getElementById('loginModal').style.display = 'flex';
+    }
+    function closeLoginModal() {
+      document.getElementById('loginModal').style.display = 'none';
+    }
+
+    function handleLogin() {
+      const u = document.getElementById('loginUser').value.trim();
+      const p = document.getElementById('loginPass').value.trim();
+
+      if ((u === 'admin' || u === 'sekreterya') && (p === '1234' || p === 'umut2026')) {
+        closeLoginModal();
+        document.getElementById('publicSite').style.display = 'none';
+        document.getElementById('automationApp').style.display = 'block';
+        window.scrollTo(0, 0);
+        showToast("Sekreterya Otomasyon Paneli'ne hoş geldiniz.");
       } else {
-        msg = `Sayın ${a.name}, Özel Umut Polikliniği'ndeki tedaviniz tamamlanmıştır. Tedavi sonrası bakım talimatlarına uymanızı rica eder, sağlıklı ve ağrısız gülüşler dileriz. Bir şikayetiniz olursa bize dilediğiniz zaman ulaşabilirsiniz.`;
+        alert("Hatalı kullanıcı adı veya şifre! (Demo için: admin / 1234)");
+      }
+    }
+
+    function logoutAutomation() {
+      document.getElementById('automationApp').style.display = 'none';
+      document.getElementById('publicSite').style.display = 'block';
+      window.scrollTo(0, 0);
+      showToast("Sekreterya oturumu güvenli şekilde sonlandırıldı.");
+    }
+
+    function openNewModal() {
+      document.getElementById('newAppointmentModal').style.display = 'flex';
+    }
+    function closeNewModal() {
+      document.getElementById('newAppointmentModal').style.display = 'none';
+    }
+
+    function saveNewAppointment() {
+      const name = document.getElementById('newPatName').value.trim();
+      const phone = document.getElementById('newPatPhone').value.trim();
+      const treatment = document.getElementById('newPatTreatment').value;
+      const time = document.getElementById('newPatTime').value.trim() || "Bugün Belirlenecek";
+
+      if (!name) {
+        alert("Lütfen bir hasta referansı girin.");
+        return;
       }
 
-      document.getElementById("notifyTextPreview").value = msg;
+      const newId = "UMT-" + Math.floor(100 + Math.random() * 900);
+      appointments.unshift({
+        id: newId,
+        name: name,
+        phone: phone || "0500 000 00 00",
+        treatment: treatment,
+        time: time,
+        status: "Bekliyor",
+        price: 3500
+      });
+
+      saveToStorage();
+      closeNewModal();
+      document.getElementById('newPatName').value = '';
+      showToast("Yeni randevu sekreterya paneline kaydedildi.");
     }
-
-    function copyNotifyMessage() {
-      const txt = document.getElementById("notifyTextPreview");
-      txt.select();
-      document.execCommand("copy");
-      showToast("Bildirim şablonu panoya kopyalandı!", "success");
-    }
-
-    function sendToWhatsAppWeb() {
-      if (!activeNotifyAppointment) return;
-      const rawPhone = activeNotifyAppointment.phone.replace(/[^0-9]/g, "");
-      let finalPhone = rawPhone;
-      if (finalPhone.startsWith("0")) {
-        finalPhone = "9" + finalPhone;
-      } else if (!finalPhone.startsWith("90")) {
-        finalPhone = "90" + finalPhone;
-      }
-
-      const text = encodeURIComponent(document.getElementById("notifyTextPreview").value);
-      const url = `https://wa.me/${finalPhone}?text=${text}`;
-      window.open(url, "_blank");
-      showToast("WhatsApp görüşmesi açılıyor...", "info");
-      closeNotifyModal();
-    }
-
-    function escapeHtml(text) {
-      if (!text) return "";
-      return text
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    }
-
-    window.onload = function() {
-      const today = new Date().toISOString().split("T")[0];
-      const patientDateInput = document.getElementById("patientDate");
-      if (patientDateInput) patientDateInput.value = today;
-
-      renderAppointments();
-      updateKPIs();
-    };
   </script>
 </body>
 </html>
